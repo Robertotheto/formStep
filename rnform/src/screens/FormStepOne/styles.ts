@@ -6,10 +6,12 @@ export const styles = StyleSheet.create({
         backgroundColor: '#f4f5f6',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 24
+        padding: 24,
+        gap: 16,
     },
     title: {
         fontSize: 24,
-        fontWeight: '700'
+        fontWeight: '700',
+        marginBottom: 44,
     }
 })
