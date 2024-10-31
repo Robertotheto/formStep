@@ -6,52 +6,56 @@ import { useRef } from "react";
 import { Button } from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 
-export function FormStepOne(){
+export function FormStepTwo(){
     const {navigate} = useNavigation()
     const {control, handleSubmit, formState: {errors}} = useForm()
-    const emailRef = useRef<TextInput>(null)
+    const phoneRef = useRef<TextInput>(null)
 
     function handleNextStep(data: any){
-        navigate("formStepTwo")
+        navigate("formStepThree")
     }
     return(
         <View style={styles.container}>
             <Text style={styles.title}>
-                Criar sua conta
+                Suas informações
             </Text>
             <Input 
-                icon="user"
-                error={errors.name?.message}
+                icon="calendar"
+                error={errors.birth?.message}
                 formProps={{
-                    name: 'name',
+                    name: 'birth',
                     control,
                     rules:{
-                        required: "Nome é obrigatório"
-                    }
-                }}
-                inputProps={{
-                    placeholder: 'Nome',
-                    onSubmitEditing: () => emailRef.current?.focus(),
-                    returnKeyType: 'next'
-                }}
-            />
-            <Input 
-                ref={emailRef}
-                icon="mail"
-                error={errors.email?.message}
-                formProps={{
-                    name: 'email',
-                    control,
-                    rules:{
-                        required: "E-mail é obrigatório",
+                        required: "Data de nascimento é obrigatória",
                         pattern: {
-                            value: /^[a-z0-9.]+@[a-z0-9]+\.(com(\.br)?)$/i,
-                            message: 'E-mail inválido.'
+                            value: /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
+                            message: "Data de nascimento inválida"
                         }
                     }
                 }}
                 inputProps={{
-                    placeholder: 'E-mail',
+                    placeholder: 'Data de nascimento',
+                    onSubmitEditing: () => phoneRef.current?.focus(),
+                    returnKeyType: 'next'
+                }}
+            />
+            <Input 
+                ref={phoneRef}
+                icon="phone"
+                error={errors.phone?.message}
+                formProps={{
+                    name: 'phone',
+                    control,
+                    rules:{
+                        required: "Telefone é obrigatório",
+                        pattern:{
+                            value: /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{5}))$/,
+                            message: "Telefone inválido"
+                        }
+                    }
+                }}
+                inputProps={{
+                    placeholder: 'Telefone',
                     onSubmitEditing: handleSubmit(handleNextStep)
                 }}
             />
