@@ -6,15 +6,17 @@ import { useRef } from "react";
 import { Button } from "../../components/Button";
 import { useAccountForm } from "../../hooks/useAccountForm";
 import { AccountProps } from "../../contexts/AccountFormContext";
+import { useNavigation } from "@react-navigation/native";
 
 export function FormStepThree(){
+    const {navigate} = useNavigation()
     const {control, handleSubmit, formState: {errors}, getValues} = useForm<AccountProps>()
     const {updateFormData} = useAccountForm()
     const passwordConfirmationRef = useRef<TextInput>(null)
 
     function handleNextStep(data: AccountProps){
         updateFormData(data)
-        console.log(data)
+        navigate('finish')
     }
     function validationPasswordConfirmation(passwordConfirmation: string){
         const {password} = getValues()
