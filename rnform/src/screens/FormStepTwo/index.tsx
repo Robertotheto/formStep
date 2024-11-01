@@ -7,6 +7,7 @@ import { Button } from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { useAccountForm } from "../../hooks/useAccountForm";
 import { AccountProps } from "../../contexts/AccountFormContext";
+import { Progress } from "../../components/Progress";
 
 export function FormStepTwo(){
     const {navigate} = useNavigation()
@@ -20,6 +21,7 @@ export function FormStepTwo(){
     }
     return(
         <View style={styles.container}>
+            <Progress progress={60} />
             <Text style={styles.title}>
                 Suas informações
             </Text>

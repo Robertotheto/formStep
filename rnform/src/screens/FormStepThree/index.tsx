@@ -7,6 +7,7 @@ import { Button } from "../../components/Button";
 import { useAccountForm } from "../../hooks/useAccountForm";
 import { AccountProps } from "../../contexts/AccountFormContext";
 import { useNavigation } from "@react-navigation/native";
+import { Progress } from "../../components/Progress";
 
 export function FormStepThree(){
     const {navigate} = useNavigation()
@@ -24,6 +25,7 @@ export function FormStepThree(){
     }
     return(
         <View style={styles.container}>
+            <Progress progress={90} />
             <Text style={styles.title}>
                 Criar sua senha
             </Text>
