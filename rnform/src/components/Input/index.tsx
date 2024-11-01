@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 
 type Props = {
-    error: string;
+    error?: string;
     icon: keyof typeof Feather.glyphMap;
     formProps: UseControllerProps;
     inputProps: TextInputProps;

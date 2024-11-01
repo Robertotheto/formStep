@@ -5,13 +5,17 @@ import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import { Button } from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { useAccountForm } from "../../hooks/useAccountForm";
+import { AccountProps } from "../../contexts/AccountFormContext";
 
 export function FormStepTwo(){
     const {navigate} = useNavigation()
-    const {control, handleSubmit, formState: {errors}} = useForm()
+    const {control, handleSubmit, formState: {errors}} = useForm<AccountProps>()
+    const {updateFormData} = useAccountForm()
     const phoneRef = useRef<TextInput>(null)
 
-    function handleNextStep(data: any){
+    function handleNextStep(data: AccountProps){
+        updateFormData(data)
         navigate("formStepThree")
     }
     return(

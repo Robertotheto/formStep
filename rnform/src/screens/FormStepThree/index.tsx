@@ -4,12 +4,16 @@ import { Input } from "../../components/Input";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import { Button } from "../../components/Button";
+import { useAccountForm } from "../../hooks/useAccountForm";
+import { AccountProps } from "../../contexts/AccountFormContext";
 
 export function FormStepThree(){
-    const {control, handleSubmit, formState: {errors}, getValues} = useForm()
+    const {control, handleSubmit, formState: {errors}, getValues} = useForm<AccountProps>()
+    const {updateFormData} = useAccountForm()
     const passwordConfirmationRef = useRef<TextInput>(null)
 
-    function handleNextStep(data: any){
+    function handleNextStep(data: AccountProps){
+        updateFormData(data)
         console.log(data)
     }
     function validationPasswordConfirmation(passwordConfirmation: string){
