@@ -1,6 +1,5 @@
 import { Text, TextInput, TextInputProps, View } from "react-native";
 import {Feather} from "@expo/vector-icons"
-import {styles} from "./styles"
 import { Controller, UseControllerProps } from "react-hook-form";
 import { forwardRef } from "react";
 import clsx from "clsx";
@@ -15,9 +14,9 @@ const Input = forwardRef<TextInput, Props>(({icon, formProps, inputProps, error 
     return(
         <Controller
             render= {({field}) => (
-                <View style={styles.container}>
-                <View style={styles.group}>
-                <View style={styles.icon}>
+                <View className="w-full">
+                <View className="w-full h-14 bg-white flex-row items-center overflow-hidden">
+                <View className="h-14 w-14 justify-center items-center overflow-hidden border-r-[3px] border-r-[#f4f5f6]">
                     <Feather 
                         name={icon} 
                         size={24} 
@@ -32,12 +31,12 @@ const Input = forwardRef<TextInput, Props>(({icon, formProps, inputProps, error 
                     ref={ref}
                     value={field.value}
                     onChangeText={field.onChange}
-                    style={styles.control} 
+                    className="flex-1 pl-4 text-lg"
                     {...inputProps}
                 />
             </View>
                 {error.length > 0 &&
-                    <Text style={styles.error}>
+                    <Text className="text-base mt-2 text-[#dc1637]">
                     {error}
                 </Text>}
             </View>

@@ -1,13 +1,15 @@
 import { View } from "react-native";
-import { styles } from "./styles";
 
 type Props = {
     progress: number;
 }
 export function Progress({progress}: Props){
     return(
-        <View style={styles.container}>
-            <View style={[styles.progress, {width: `${progress}%`}]} />
+        <View className="w-full h-1 bg-[#DEDEDE]">
+            <View 
+                className="h-1 bg-[#8257e5]"
+                style={{width: `${progress}%`}}
+            />
         </View>
     )
 }

@@ -1,5 +1,4 @@
 import { Text, TextInput, View } from "react-native";
-import { styles } from "./styles";
 import { Input } from "../../components/Input";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
@@ -20,9 +19,9 @@ export function FormStepOne(){
         navigate("formStepTwo")
     }
     return(
-        <View style={styles.container}>
+        <View className="flex-1 bg-['#f4f5f6'] justify-center items-center p-6 gap-4">
             <Progress progress={30} />
-            <Text style={styles.title}>
+            <Text className="text-2xl font-bold mb-8">
                 Criar sua conta
             </Text>
             <Input 
