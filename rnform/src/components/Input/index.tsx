@@ -16,7 +16,7 @@ const Input = forwardRef<TextInput, Props>(({icon, formProps, inputProps, error 
             render= {({field}) => (
                 <View className="w-full">
                 <View className="w-full h-14 bg-white flex-row items-center overflow-hidden">
-                <View className="h-14 w-14 justify-center items-center overflow-hidden border-r-[3px] border-r-[#f4f5f6]">
+                <View className="h-14 w-14 justify-center items-center overflow-hidden border-r-4 border-r-zinc-100">
                     <Feather 
                         name={icon} 
                         size={24} 
@@ -36,7 +36,7 @@ const Input = forwardRef<TextInput, Props>(({icon, formProps, inputProps, error 
                 />
             </View>
                 {error.length > 0 &&
-                    <Text className="text-base mt-2 text-[#dc1637]">
+                    <Text className="text-base mt-2 text-red-500">
                     {error}
                 </Text>}
             </View>

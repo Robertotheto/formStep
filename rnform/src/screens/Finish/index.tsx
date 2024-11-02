@@ -5,7 +5,7 @@ import {Confetti} from "react-native-fast-confetti"
 export function Finish(){
     const {accountFormData}  = useAccountForm()
     return(
-        <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
+        <View className="flex-1 justify-center items-center">
             <Confetti />
             <Text>
                 {accountFormData.name}

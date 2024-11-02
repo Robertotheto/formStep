@@ -19,7 +19,7 @@ export function FormStepTwo(){
         navigate("formStepThree")
     }
     return(
-        <View className="flex-1 bg-['#f4f5f6'] justify-center items-center p-6 gap-4">
+        <View className="flex-1 bg-zinc-100 justify-center items-center p-6 gap-4">
             <Progress progress={60} />
             <Text className="text-2xl font-bold mb-8">
                 Suas informações
